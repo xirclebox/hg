@@ -4,6 +4,8 @@
 @media (prefers-color-scheme: dark) {
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -15,9 +17,21 @@ body {
 }
 
 body {
-  .main {
-    color: green;
+  .Site__Header {
+    display: flex;
   }
+
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.me {
+  font-size: 64px;
+  font-weight: 200;
+  letter-spacing: 1;
+  text-transform: uppercase;
 }
 
 .skip-to-main {
@@ -37,8 +51,8 @@ body {
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
+// @media (prefers-color-scheme: dark) {
+//   html {
+//     color-scheme: dark;
+//   }
+// }
