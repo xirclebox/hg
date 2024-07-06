@@ -14,13 +14,11 @@ const Button: React.FC<ButtonProps> = ({
   ariaLabel,
   children,
 }) => {
-  const isDisabled = disabled ? "true" : undefined;
-
   return (
     <button
       className="Button"
       onClick={onClick}
-      aria-disabled={isDisabled}
+      aria-disabled={disabled}
       aria-label={ariaLabel}
     >
       {children}

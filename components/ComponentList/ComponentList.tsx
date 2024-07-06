@@ -24,9 +24,6 @@ const ComponentList = ({ components }: ComponentListProps) => {
           <p>{component.name}</p>
         </a>
       ))}
-      <Button disabled onClick={() => {}}>
-        Test
-      </Button>
     </div>
   );
 };

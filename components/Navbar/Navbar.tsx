@@ -1,10 +1,5 @@
 import React from "react";
-
-const navData = [
-  { name: "About", url: "bio" },
-  { name: "Work", url: "work" },
-  { name: "Contact", url: "contact" },
-];
+import { navData } from "./NavbarListItems";
 
 const Navbar = () => {
   return (
