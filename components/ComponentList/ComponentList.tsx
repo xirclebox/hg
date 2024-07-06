@@ -1,14 +1,15 @@
 import React from "react";
 import "./ComponentList.scss";
+import Button from "../Button/Button";
 
-interface component {
+interface Component {
   id: number;
   name: string;
   url: string;
 }
 
 interface ComponentListProps {
-  components: component[];
+  components: Component[];
 }
 
 const ComponentList = ({ components }: ComponentListProps) => {
@@ -23,6 +24,9 @@ const ComponentList = ({ components }: ComponentListProps) => {
           <p>{component.name}</p>
         </a>
       ))}
+      <Button disabled onClick={() => {}}>
+        Test
+      </Button>
     </div>
   );
 };
