@@ -1,4 +1,4 @@
-export const navData = [
-  { name: "About", url: "bio" },
-  { name: "Components", url: "work" },
+export const navBarData = [
+  { name: "About", url: "/bio" },
+  { name: "Components", url: "/components" },
 ];
