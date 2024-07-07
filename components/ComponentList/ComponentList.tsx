@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./ComponentList.scss";
-import { TextInput } from "../TextInput/TextInput";
 
 interface Component {
   id: number;
@@ -13,9 +12,6 @@ interface ComponentListProps {
 }
 
 const ComponentList = ({ components }: ComponentListProps) => {
-  // input test
-  const [inputValue, setInputValue] = useState("");
-
   return (
     <div className="ComponentList-grid">
       {components.map((component) => (
@@ -27,15 +23,6 @@ const ComponentList = ({ components }: ComponentListProps) => {
           <p>{component.name}</p>
         </a>
       ))}
-
-      <TextInput
-        id="my-input"
-        label="Enter your name"
-        placeholder="John Doe"
-        value={inputValue}
-        onChange={setInputValue}
-        required
-      />
     </div>
   );
 };
