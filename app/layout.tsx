@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 
 import "./globals.scss";
 import SkipContent from "@/components/SkipContent/SkipContent";
-import Navbar from "@/components/Navbar/Navbar";
 
 export const metadata: Metadata = {
   title: "Xircle UI",
@@ -18,7 +17,8 @@ export default function RootLayout({
         <div className="Site__wrapper">
           <SkipContent />
           <header className="Site__Header">
-            <Navbar />
+            <h1 className="name">xircleui</h1>
+            <p></p>
           </header>
           <main id="main" className="main">
             {children}

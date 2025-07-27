@@ -1,7 +1,7 @@
 import React from "react";
 import "@testing-library/jest-dom";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { TextInput } from "./TextInput";
+import TextInput from "./TextInput";
 
 describe("TextInput", () => {
   const mockOnChange = jest.fn();
@@ -19,6 +19,9 @@ describe("TextInput", () => {
         value=""
         onChange={mockOnChange}
         required={true}
+        onBlur={function (): void {
+          throw new Error("Function not implemented.");
+        }}
       />
     );
 
@@ -38,6 +41,9 @@ describe("TextInput", () => {
         placeholder="Enter text"
         value=""
         onChange={mockOnChange}
+        onBlur={function (): void {
+          throw new Error("Function not implemented.");
+        }}
       />
     );
 
@@ -54,6 +60,9 @@ describe("TextInput", () => {
         value=""
         onChange={mockOnChange}
         required={true}
+        onBlur={function (): void {
+          throw new Error("Function not implemented.");
+        }}
       />
     );
 
@@ -69,6 +78,9 @@ describe("TextInput", () => {
         value=""
         onChange={mockOnChange}
         optional={true}
+        onBlur={function (): void {
+          throw new Error("Function not implemented.");
+        }}
       />
     );
 

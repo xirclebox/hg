@@ -1,14 +1,47 @@
 :root {
+  // colors
+  --black: #000;
+  --white: #fff;
+  --dark: #141416;
+  --light: #f0eed4;
+
+  --cyan: #00eeff;
+  --darkcyan: #003955;
+  --organe: #fe9129;
+  --pink: #db246b;
+
+  --background: #131321;
+  --border-color: var(--darkcyan);
+
+  --hover: var(--darkcyan);
+  --labelHover: var(var(--black));
+
+  // font size
+  --font-14: 14px;
+  --font-16: 16px;
+
+  // spacing
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+
+  // decorations
+  --radius-4: 4px;
+  --border: 1px solid var(--border-color);
 }
 
 @media (prefers-color-scheme: dark) {
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Jost:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Jost:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&family=SUSE:wght@100..800&display=swap");
 
 html,
 body {
   box-sizing: border-box;
+  background: var(--background);
+  color: var(--white);
 }
 
 *,
@@ -22,17 +55,50 @@ body {
     display: flex;
   }
 
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "SUSE", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400;
+  letter-spacing: 1.2px;
+  font-weight: normal;
   font-style: normal;
 }
 
-.me {
+.name {
   font-size: 64px;
-  font-weight: 200;
+  font-weight: 400;
   letter-spacing: 1;
-  text-transform: uppercase;
+}
+
+.Site__wrapper {
+  padding: 24px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.container {
+  margin: 0;
+  //border-bottom: var(--border);
+  padding: 36px 0;
+}
+
+.Page__heading {
+  font-weight: 400;
+}
+
+button {
+  cursor: pointer;
+  color: var(--black);
+  transition: background-color 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    background: var(--hover);
+    color: var(--white);
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--white);
+    outline-offset: 2px;
+  }
 }
 
 // @media (prefers-color-scheme: dark) {

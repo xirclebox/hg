@@ -1,0 +1,103 @@
+/* PopupMenu.css */
+.popup-menu-container {
+  position: relative;
+  display: inline-block;
+}
+
+.popup-menu-trigger {
+  cursor: pointer;
+  user-select: none;
+}
+
+.popup-menu-trigger:focus {
+  outline: 2px solid #4d90fe;
+  outline-offset: 2px;
+}
+
+.popup-menu {
+  position: absolute;
+  z-index: 100;
+  min-width: 180px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 8px 0;
+  margin-top: 8px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeIn 0.2s ease forwards;
+}
+
+/* Menu positioning variants */
+.popup-menu.bottom-left {
+  left: 0;
+  top: 100%;
+}
+
+.popup-menu.bottom-right {
+  right: 0;
+  top: 100%;
+}
+
+.popup-menu.top-left {
+  left: 0;
+  bottom: 100%;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.popup-menu.top-right {
+  right: 0;
+  bottom: 100%;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.menu-item {
+  display: block;
+  padding: 10px 16px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.menu-item:hover,
+.menu-item:focus,
+.menu-item.active {
+  background-color: #f5f5f5;
+  outline: none;
+}
+
+.menu-item:active {
+  background-color: #e5e5e5;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Focus styling for keyboard navigation */
+.menu-item:focus-visible {
+  outline: 2px solid #4d90fe;
+  outline-offset: -2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .popup-menu {
+    min-width: 160px;
+  }
+
+  .menu-item {
+    padding: 12px 16px;
+  }
+}

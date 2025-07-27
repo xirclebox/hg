@@ -1,13 +1,13 @@
 "use client";
 import React, { useState } from "react";
-import { TextInput } from "@/components/TextInput/TextInput";
+import TextInput from "@/components/TextInput/TextInput";
 
 export default function Page() {
   const [inputValue, setInputValue] = useState("");
 
   return (
-    <>
-      <h1>Text Input</h1>
+    <div>
+      <h1 className="Page__heading">Text Input</h1>
       <p>Component description</p>
       <section>
         <TextInput
@@ -17,8 +17,9 @@ export default function Page() {
           value={inputValue}
           onChange={setInputValue}
           required
+          onBlur={() => {}}
         />
       </section>
-    </>
+    </div>
   );
 }

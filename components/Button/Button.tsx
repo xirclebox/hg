@@ -1,29 +1,37 @@
-import React from "react";
 import "./Button.scss";
 
-interface ButtonProps {
-  onClick: () => void;
-  disabled?: boolean;
-  ariaLabel?: string;
-  children: React.ReactNode;
+export enum ButtonTypes {
+  submit = "submit",
+  button = "button",
+  reset = "reset",
 }
 
-const Button: React.FC<ButtonProps> = ({
-  onClick,
-  disabled,
+interface ButtonProps {
+  ariaLabel?: string;
+  className?: string;
+  children?: React.ReactNode;
+  disabled?: boolean;
+  type?: ButtonTypes;
+  onClick: () => void;
+}
+
+const Button = ({
   ariaLabel,
   children,
-}) => {
-  return (
-    <button
-      className="Button"
-      onClick={onClick}
-      aria-disabled={disabled}
-      aria-label={ariaLabel}
-    >
-      {children}
-    </button>
-  );
-};
+  className,
+  disabled = false,
+  type = ButtonTypes.button,
+  onClick,
+}: ButtonProps) => (
+  <button
+    type={type}
+    aria-label={ariaLabel}
+    className={className}
+    aria-disabled={disabled}
+    onClick={onClick}
+  >
+    {children}
+  </button>
+);
 
 export default Button;

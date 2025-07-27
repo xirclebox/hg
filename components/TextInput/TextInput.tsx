@@ -1,4 +1,5 @@
 import React, { useState, ChangeEvent } from "react";
+import "./TextInput.scss";
 
 interface TextInputProps {
   id: string;
@@ -8,9 +9,11 @@ interface TextInputProps {
   onChange: (value: string) => void;
   required?: boolean;
   optional?: boolean;
+  validate?: (value: string) => string | undefined;
+  onBlur: () => void;
 }
 
-export const TextInput: React.FC<TextInputProps> = ({
+const TextInput = ({
   id,
   label,
   placeholder,
@@ -18,33 +21,43 @@ export const TextInput: React.FC<TextInputProps> = ({
   onChange,
   required = false,
   optional = false,
-}) => {
-  const [isFocused, setIsFocused] = useState(false);
+  validate,
+  onBlur,
+}: TextInputProps) => {
+  const [error, setError] = useState<string | undefined>();
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    onChange(e.target.value);
+  const handleBlur = () => {
+    if (validate) {
+      setError(validate(value));
+    }
+    onBlur?.();
   };
 
   return (
     <div className="Text-input">
       <label htmlFor={id} className="Text-input__label">
-        {label}
+        <span className="Text-input__label-text">{label}</span>
         {required && <span className="Text-input__required">Required</span>}
         {optional && <span className="Text-input__optional">Optional</span>}
       </label>
       <input
-        type="text"
-        data-testid="text-input-field"
-        id={id}
-        className="Text-input__field"
-        placeholder={placeholder}
-        value={value}
-        onChange={handleChange}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
-        required={required}
-        aria-required={required}
+        {...{
+          type: "text",
+          "data-testid": "text-input-field",
+          id,
+          className: `Text-input__field ${error ? "Text-input__field--error" : ""}`,
+          placeholder,
+          value,
+          onChange: (e) => onChange(e.target.value),
+          onBlur: handleBlur,
+          required,
+          "aria-required": required,
+          "aria-invalid": !!error,
+        }}
       />
+      {error && <div className="Text-input__error">oops</div>}
     </div>
   );
 };
+
+export default TextInput;

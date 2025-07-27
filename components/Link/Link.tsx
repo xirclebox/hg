@@ -1,4 +1,3 @@
-import React from "react";
 import "./Link.scss";
 
 interface LinkProps {
@@ -7,7 +6,6 @@ interface LinkProps {
   className?: string;
   target?: "_blank" | "_self" | "_parent" | "_top";
   rel?: string;
-  hasOnClick?: boolean;
   onClick?: () => {};
 }
 
@@ -18,7 +16,6 @@ const Link: React.FC<LinkProps> = ({
   target,
   rel,
   onClick,
-  hasOnClick,
 }) => {
   const handleKeyDown = (event: React.KeyboardEvent<HTMLAnchorElement>) => {
     if (event.key === "Enter" || event.key === " ") {
